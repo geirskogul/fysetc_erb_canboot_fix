@@ -1,5 +1,5 @@
 # fysetc_erb_canboot_fix
-Instruction and fixes for flashing CanBoot to the fysetc ERB to prevent it from losing firmware on reset, and fixing the recent bug where the ERB and other RP2040-based board fail to enumerate on SBC restart.
+Instructions and fixes for flashing CanBoot to the fysetc ERB to prevent it from losing firmware on reset, and fixing the recent bug where the ERB and other RP2040-based board fail to enumerate on SBC restart.
 
 NOTE: This is assuming you have a single board computer (SBC) already running klipper, and you have terminal access (through SSH or other means) to the machine.  This short guide does not cover basic setup of a SBC for klipper, nor any other procedures.
 `

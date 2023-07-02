@@ -12,12 +12,19 @@ I have copied the relevant portions of the instructions here, in case something 
 
 --------------------------------------------
 
-Canboot for SKR Pico in USB mode
+Copying the CanBoot files to your SBC:
 
+SSH to your Klipper host
 
-> SSH to your Klipper host
+> cd ~/
 
-> CD to Canboot
+> git clone https://github.com/Arksine/CanBoot
+
+--------------------------------------------
+
+Configure and flash CanBoot to the ERB:
+
+enter the CanBoot directory
 
 > cd ~/CanBoot/
 
@@ -37,7 +44,6 @@ Settings:
 
 > q to exit, Y to save
 
---------------------------------------------
 
 Run make
 

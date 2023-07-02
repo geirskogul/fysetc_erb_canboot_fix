@@ -2,7 +2,7 @@
 Instructions and fixes for flashing CanBoot to the fysetc ERB to prevent it from losing firmware on reset, and fixing the recent bug where the ERB and other RP2040-based board fail to enumerate on SBC restart.
 
 NOTE: This is assuming you have a single board computer (SBC) already running klipper, and you have terminal access (through SSH or other means) to the machine.  This short guide does not cover basic setup of a SBC for klipper, nor any other procedures.
-`
+
 
 First, flash the ERB using the SKR pico instructions with CanBoot in USB mode:
 
@@ -26,7 +26,7 @@ Configure and flash CanBoot to the ERB:
 
 enter the CanBoot directory
 
-> cd ~/CanBoot/
+> cd CanBoot
 
 Run Make Clean
 
@@ -43,7 +43,6 @@ Settings:
 	(*) support bootloader entry on rapid double click of reset button
 
 > q to exit, Y to save
-
 
 Run make
 

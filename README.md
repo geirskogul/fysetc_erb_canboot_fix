@@ -4,9 +4,20 @@ Instructions and fixes for flashing CanBoot to the fysetc ERB to prevent it from
 NOTE: This is assuming you have a single board computer (SBC) already running klipper, and you have terminal access (through SSH or other means) to the machine.  This short guide does not cover basic setup of a SBC for klipper, nor any other procedures.
 
 
-First, flash the ERB using the SKR pico instructions with CanBoot in USB mode:
+References used:
 
+CanBoot issue 2: 
+https://github.com/bigtreetech/SKR-Pico/issues/2
+(specifically the comments and discussions linked at this comment: https://github.com/bigtreetech/SKR-Pico/issues/2#issuecomment-1484237913)
+
+RP2040CanBoot in USB mode instructions from arksine:
 https://github.com/Polar-Ted/RP2040Canboot_Install/blob/main/README.MD#canboot-for-skr-pico-in-usb-mode
+
+The multiple workarounds that have been tried to fix USB enumeration, including remote and scripted restarts:
+https://github.com/Drachenkaetzchen/VoronMisc/blob/main/SKR-Pico-Reset.md
+https://github.com/matthew-humphrey/3DP-Build-Log/blob/main/RP2040-USB-Bug/README.md
+
+While remote restarting and scripts fix the secondary issue here (the ERB/RP2040 fails to enumerate as a USB device on klipper SBC startup), it doesn't fix the issue of the ERB just occasionally overwriting it's own firmware back to stock.  Flashing CanBoot in USB mode, with the regular klipper/rp2040 firmware inside of that, fixes this issue on 99% of restarts for me, as it much more reliably starts the rp2040 properly upon power application.
 
 I have copied the relevant portions of the instructions here, in case something changes regarding CanBoot later on
 

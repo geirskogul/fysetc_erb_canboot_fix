@@ -1,34 +1,33 @@
 # fysetc_erb_canboot_fix
-Instruction and fixes for flashing CanBoot to the fysetc ERB to prevent it from losing firmware on reset
+Instruction and fixes for flashing CanBoot to the fysetc ERB to prevent it from losing firmware on reset, and fixing the recent bug where the ERB and other RP2040-based board fail to enumerate on SBC restart.
 
-
-How to flash a fyetc ERB board so it stops losing its flash/fails to enumerate on printer startup/requiring a reset button hit on every boot:
+NOTE: This is assuming you have a single board computer (SBC) already running klipper, and you have terminal access (through SSH or other means) to the machine.  This short guide does not cover basic setup of a SBC for klipper, nor any other procedures.
+`
 
 First, flash the ERB using the SKR pico instructions with CanBoot in USB mode:
 
 https://github.com/Polar-Ted/RP2040Canboot_Install/blob/main/README.MD#canboot-for-skr-pico-in-usb-mode
 
+I have copied the relevant portions of the instructions here, in case something changes regarding CanBoot later on
+
 --------------------------------------------
 
 Canboot for SKR Pico in USB mode
 
-    Update to the latest Canboot and Klipper codabase as of 11-8-2022
-        Canboot v0.0.1-20-g600967e or newer
-        Klipper v0.10.0-623-g5b1a6676 or newer
 
-    SSH to your Klipper host
+> SSH to your Klipper host
 
-    CD to Canboot
+> CD to Canboot
 
-    cd ~/CanBoot/
+> cd ~/CanBoot/
 
 Run Make Clean
 
-make clean
+> make clean
 
 Run Make Menuconfig
 
-make menuconfig
+> make menuconfig
 
 Settings:
 	MCU Raspberry Pi RP2040
@@ -44,9 +43,11 @@ Run make
 
 > make -j 4
 
+("-j" specifies the number of threads to run the 'make' command with.  On the CB1 you may need to change it to "make -j 2". Limiting the number of threads eliminates variables between machines for the purposes of these instructions)
+
 Connect to the ERB by powering it with a separate 24v power supply, and connecting it to the klipper host via USB
 
-While holding the BOOTSEL button (by the USB port), tap the RST button (by the encoder/servo/endstop ports) and release both.  NO JUMPERS
+While holding the BOOTSEL button (by the USB port), tap the RST button (by the encoder/servo/endstop ports) and release both.  NOTE: the ERB does not require any jumpers.  Placing jumpers on it in accordance with the instructions for the EZBRD will blow out the internal 5v power regulator - at that point you can buy a new ERB or deadbug in a dedicated 5v power supply.
 
 flash the ERB/pico CANBOOT firmware
 

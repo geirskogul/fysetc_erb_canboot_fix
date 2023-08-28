@@ -74,7 +74,9 @@ flash the ERB/pico CANBOOT firmware
 
 > sudo make flash FLASH_DEVICE=2e8a:0003
 
-if this does not work, reset the board again, hit "up" on the arrow keys in your terminal client of choice to reload the last command, and try again
+if this does not work, reset the board again, hit "up" on the arrow keys in your terminal client of choice to reload the last command, and try again.
+
+if this STILL does not work, unplug the ERB, hold the BOOTSEL button, and while holding that button down, plug it back in
 
 
 --------------------------------------------

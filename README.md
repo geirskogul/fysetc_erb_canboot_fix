@@ -48,6 +48,7 @@ Run Make Menuconfig
 > make menuconfig
 
 Settings:
+
 	MCU Raspberry Pi RP2040
  
 	Build CanBoot deployment 16Kib Bootloader

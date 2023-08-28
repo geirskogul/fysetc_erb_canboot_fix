@@ -100,8 +100,11 @@ configure the klipper firmware for the ERB
 > make menuconfig
 
 Settings: 
+
 	MCU Raspberry PI RP2040
+ 
 	bootloader offset: none
+ 
 	COM interface: USB
 
 > q to exit, Y to save

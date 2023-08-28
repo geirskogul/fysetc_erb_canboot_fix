@@ -49,9 +49,13 @@ Run Make Menuconfig
 
 Settings:
 	MCU Raspberry Pi RP2040
+ 
 	Build CanBoot deployment 16Kib Bootloader
+ 
 	COM interface: USB
+ 
 	(*) support bootloader entry on rapid double click of reset button
+ 
 
 > q to exit, Y to save
 
